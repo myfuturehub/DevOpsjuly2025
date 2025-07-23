@@ -1,0 +1,33 @@
+---
+- name: Playbook to install git maven tree java elinks 
+  hosts: ubuntu
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: install git
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+   - name: install maven
+     apt:
+      name: maven
+      state: present
+      update_cache: yes
+   - name: install tree
+     apt:
+      name: tree
+      state: present
+      update_cache: yes
+   - name: install java
+     apt:
+      name: default-jdk
+      state: present
+      update_cache: yes
+   - name: install elinks
+     apt:
+      name: elinks
+      state: present
+      update_cache: yes
+...
+

@@ -1,0 +1,22 @@
+---
+- name: Playbook to install git on Ubuntu nodes
+  hosts: ubuntu
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: install git
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+- name: Playbook to install git on Amz Linux
+  hosts: amz
+  become: true
+  gather_facts: false
+  tasks:
+   - name: install git
+     yum: 
+       name: git
+       state: present
+       update_cache: yes
+...

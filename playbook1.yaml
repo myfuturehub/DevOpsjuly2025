@@ -1,0 +1,12 @@
+---
+- name: Playbook to uninstall git in all target nodes
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: uninstall git
+     apt:
+      name: git
+      state: absent
+      update_cache: yes
+...

@@ -1,0 +1,13 @@
+---
+- name: Playbook to uninstall git maven tree java elinks 
+  hosts: ubuntu
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: uninstall packages
+     apt:
+      name: ["git", "maven", "tree", "default-jdk", "elinks"]
+      state: absent
+      update_cache: yes
+...
+

@@ -1,0 +1,8 @@
+- name: run a task
+  hosts: all
+  become: true
+  tasks: 
+    - name: Print even numbers from 2 to 10
+      debug:
+        msg: "Even number {{ item }}"
+      with_sequence: start=1 end=10

@@ -1,0 +1,15 @@
+---
+- name: Playbook to create a user in all target nodes
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: create user account
+     user: 
+      name: deeksha
+      shell: /bin/bash
+      comment: developer
+      password: 123456
+      home: /home/deeksha
+      uid: 9999
+...

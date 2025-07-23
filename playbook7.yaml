@@ -1,0 +1,17 @@
+---
+- name: Playbook to install git maven tree and uninstall java and  elinks 
+  hosts: ubuntu
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: install and uninstall packages
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: no
+     with_items:
+       - {a: git, b: present}
+       - {a: maven, b: present}
+       - {a: tree, b: present}
+       - {a: default-jdk, b: absent}
+       - {a: elinks, b: absent}
