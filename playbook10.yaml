@@ -1,0 +1,25 @@
+---
+- name: Playbook - playscope variables - interactive variables
+  hosts: ubuntu
+  become: true
+  gather_facts: false
+  vars_prompt:
+     - name: var1
+       prompt: "Enter the package you want to install:  "
+       private: false
+  tasks: 
+   - name: install tomcat
+     apt: 
+        name: "{{var1}}"
+        state: present
+        update_cache: yes
+   - name: change the port
+     replace:
+        regexp: 8080
+        replace: 9090
+        path: /etc/{{var1}}/server.xml
+   - name: restart tomcat
+     service:
+        name:  "{{var1}}"
+        state: restarted
+...

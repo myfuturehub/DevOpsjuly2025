@@ -1,0 +1,5 @@
+filename: /tmp/file123456
+status1: touch
+dirname: /tmp/dir123
+status2: directory
+

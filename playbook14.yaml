@@ -1,0 +1,20 @@
+---
+- name: Playbook to get information about a file- present/absent
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: check for a file
+     stat:
+       path: /tmp/file1.txt
+     register: output
+   - name: print the output
+     debug:
+       var: output
+   - name: create a file if the file is not present
+     file: 
+        path: /tmp/file1.txt
+        state: touch
+     when: 
+        output.stat.exists==false
+...

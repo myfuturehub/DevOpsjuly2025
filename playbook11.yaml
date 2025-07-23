@@ -1,0 +1,30 @@
+---
+- name: Playbook - playscope variables - Take interactive inputs and create a user
+  hosts: ubuntu
+  become: true
+  gather_facts: false
+  vars_prompt:
+   - name: usrname
+     prompt: "Please enter your username: "
+     private: false
+   - name: pass
+     prompt: "Please enter your password: "
+   - name: shelltype
+     prompt: "Please enter the shell type: " 
+     private: false
+   - name: desg
+     prompt: "Please enter your desg: " 
+     private: false
+   - name: userid
+     prompt: " Please enter your userid: "
+     private: false
+  tasks: 
+   - name: create a user
+     user: 
+       name: "{{usrname}}"
+       password: "{{pass}}"
+       shell: "{{shelltype}}"
+       comment: "{{desg}}"
+       uid: "{{userid}}"
+       home: /home/{{usrname}}
+...
