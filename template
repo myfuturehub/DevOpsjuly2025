@@ -1,0 +1,8 @@
+---
+- name: Playbook template
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: your task goes here
+...

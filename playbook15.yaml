@@ -1,0 +1,23 @@
+---
+- name: Playbook to update password if the user account is already present
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks: 
+   - name: create a user account
+     user: 
+       name: arun
+       password: 123456
+       home: /home/arun
+       shell: /bin/bash
+     register: output
+   - name: print the logs
+     debug:
+       var: output
+   - name: change the password if the account is already present
+     user: 
+       name: arun
+       password: 11223344
+     when: 
+       output.changed==False
+...

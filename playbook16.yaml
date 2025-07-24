@@ -1,0 +1,22 @@
+---
+- name: Error Handling Example
+  hosts: ubuntu
+  become: true
+  gather_facts: false
+  tasks: 
+   - block:
+     - name: install tree package with APT Module
+       apk: 
+        name: git
+        state: present
+        update_cache: yes
+     rescue:
+      - name: install tree package with YUM package manager
+        yum: 
+         name: git
+         state: present
+         update_cache: yes
+     always:
+      - name: run a command
+        command: 'date'
+...
