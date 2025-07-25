@@ -1,0 +1,13 @@
+---
+- name: Playbook template
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Import child task files
+      include_tasks: "{{ item }}"
+      loop:
+        - child1.yaml
+        - child2.yaml
+        - child3.yaml
+...

@@ -1,0 +1,9 @@
+---
+- name: Playbook template
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:  
+    - name: call child elements
+      import_tasks: ["child1.yaml", "child2.yaml", "child3.yaml"]
+...

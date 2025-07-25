@@ -1,0 +1,6 @@
+---
+- name: create a user
+  user: 
+    name: krishna
+    password: 123456
+...
