@@ -1,0 +1,6 @@
+---
+- name: deploy an app
+  copy: 
+   src: "{{var9}}"
+   dest: "{{var8}}"
+  notify: check_url

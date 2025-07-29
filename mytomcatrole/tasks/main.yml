@@ -1,0 +1,9 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for mytomcatrole
+- name: call the tasks
+  include_tasks: "{{item}}"
+  with_items:
+   - task1.yaml
+   - task2.yaml
+   - task3.yaml

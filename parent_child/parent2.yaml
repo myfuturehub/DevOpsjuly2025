@@ -6,7 +6,7 @@
   tasks:
     - name: Import child task files
       include_tasks: "{{ item }}"
-      loop:
+      with_items:
         - child1.yaml
         - child2.yaml
         - child3.yaml

@@ -1,0 +1,25 @@
+---
+- name: ansible playbook to perform docker activities
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: pull a docker image
+      docker_image:
+        name: nginx
+        source: pull
+    - name: create a container
+      docker_container: 
+        name: c1
+        ports: 
+          - 7070:80
+        image: nginx
+    - name: delete docker container
+      docker_container:
+        name: c1
+        state: absent
+    - name: delete an image
+      docker_image:
+        name: nginx
+        state: absent
+...

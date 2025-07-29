@@ -1,0 +1,8 @@
+---
+- name: change port
+  replace:
+    regexp: "{{var4}}"
+    replace: "{{var5}}"
+    path: "{{var6}}"
+  notify: restart_tc
+

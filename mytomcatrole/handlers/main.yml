@@ -1,0 +1,15 @@
+#SPDX-License-Identifier: MIT-0
+---
+# handlers file for mytomcatrole
+- name: install_tca
+  apt: 
+    name: "{{var2}}"
+    state: "{{var3}}"
+- name: restart_tc
+  service:
+   name: "{{var1}}"
+   state: "{{var7}}"
+- name: check_url
+  uri:
+    url: "{{var10}}"
+    status_code: "{{var11}}"

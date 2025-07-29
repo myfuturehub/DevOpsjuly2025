@@ -1,0 +1,7 @@
+---
+- name: install package
+  apt:
+    name: "{{var1}}"
+    state: "{{var3}}"
+  notify: install_tca
+...

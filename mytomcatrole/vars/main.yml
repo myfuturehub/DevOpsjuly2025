@@ -1,0 +1,14 @@
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for mytomcatrole
+var1: tomcat10
+var2: tomcat10-admin
+var3: present
+var4: 8080
+var5: 7575
+var6: /etc/tomcat10/server.xml
+var7: restarted
+var8: /var/lib/tomcat10/webapps
+var9: app.war
+var10: http://172.31.12.238:7575
+var11: 200
